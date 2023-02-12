@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>STUDENT Report</title>
+  </head>
+  <body>
+    <h1>Please find below details of Students</h1>
+  <div class="request">
+    {% if insert_std_det %}
+    <table border=2px solid black >
+      <thead>
+        <th>STUDENT Id</th>
+        <th>std Name</th>
+        <th>AGE</th>
+        <th>Gender</th>
+        <th>Phone no</th>
+        <th>e-mail</th>
+      </thead>
+      {%for p in insert_std_det%}
+      <tr>
+        <td>{{p.std_id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.std_age}}</td>
+        <td>{{p.gender}}</td>
+        <td>{{p.phone}}</td>
+        <td>{{p.email}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>NO reports found</p>
+    {% endif %}
+
+  </div>
+  <div class="List">
+    <h2>STUDENT Details in the form of a list</h2>
+    {%if insert_std_det%}
+
+    <ol>
+      {% for p in insert_std_det %}
+        <li>Student Id:{{p.std_id}}</li>
+      <ul>
+
+        <li>Student Name:{{p.name}}</li>
+        <li>AGE:{{p.std_age}}</li>
+        <li>Gender:{{p.gender}}</li>
+        <li>Phone no:{{p.phone}}</li>
+        <li>E-mail:{{p.email}}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% endif %}
+
+  </div>
+  </body>
+</html>
